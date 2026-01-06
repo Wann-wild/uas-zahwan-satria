@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Coffee | Where Coffee Meets Digital</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #d4a373;
+            --dark: #1a1a1a;
+            --light: #fefae0;
+            --accent: #bc6c25;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
+        body { background-color: #fff; color: var(--dark); line-height: 1.6; }
+
+        /* Navigation */
+        nav { background: rgba(26, 26, 26, 0.95); backdrop-filter: blur(5px); color: #fff; padding: 1rem 5%; position: fixed; width: 100%; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-weight: 700; font-size: 1.5rem; color: var(--primary); }
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-left: 20px; }
+        nav ul li a { color: #fff; text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
+        nav ul li a:hover { color: var(--primary); }
+
+        /* Hero Section */
+        .hero { height: 100vh; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1500&q=80'); background-size: cover; background-position: center; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: white; padding: 0 20px; }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; }
+        .hero p { font-size: 1.2rem; color: var(--primary); font-weight: 300; letter-spacing: 2px; }
+
+        /* Quick Stats */
+        .stats { display: flex; justify-content: center; gap: 50px; background: white; padding: 40px 20px; margin-top: -50px; width: 80%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin-left: auto; margin-right: auto; position: relative; z-index: 10; }
+        .stat-item h2 { font-size: 2.5rem; color: var(--accent); }
+        .stat-item p { color: #666; font-size: 0.9rem; text-transform: uppercase; }
+
+        section { padding: 100px 10%; }
+        h2.section-title { text-align: center; margin-bottom: 50px; font-size: 2.5rem; position: relative; }
+        h2.section-title::after { content: ''; width: 50px; height: 3px; background: var(--primary); position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); }
+
+        /* About Us */
+        .about-container { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+        .about-text h3 { color: var(--accent); margin-bottom: 15px; }
+        .about-text p { margin-bottom: 20px; text-align: justify; }
+
+        /* Menu Section */
+        .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .menu-card { border: 1px solid #eee; border-radius: 12px; overflow: hidden; transition: 0.3s; }
+        .menu-card:hover { border-color: var(--primary); transform: translateY(-5px); }
+        .menu-card img { width: 100%; height: 200px; object-fit: cover; }
+        .menu-info { padding: 20px; }
+        .menu-info h4 { margin-bottom: 5px; }
+        .price { color: var(--accent); font-weight: bold; }
+
+        /* Facilities */
+        .fac-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; text-align: center; }
+        .fac-item { background: var(--light); padding: 30px; border-radius: 15px; }
+        .fac-item i { font-size: 2.5rem; color: var(--accent); margin-bottom: 15px; }
+
+        /* Contact & Branches */
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .branch-card { background: #fff; border-left: 5px solid var(--primary); padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .branch-card h3 { margin-bottom: 10px; color: var(--dark); }
+
+        /* Footer */
+        footer { background: var(--dark); color: #fff; padding: 50px 10% 20px; text-align: center; }
+        .social-links a { color: #fff; font-size: 1.5rem; margin: 0 10px; transition: 0.3s; }
+        .social-links a:hover { color: var(--primary); }
+        .footer-info { margin-bottom: 20px; border-bottom: 1px solid #333; padding-bottom: 20px; }
+
+        @media (max-width: 768px) {
+            .about-container, .contact-grid { grid-template-columns: 1fr; }
+            .stats { flex-direction: column; gap: 20px; width: 90%; margin-top: -30px; }
+            nav ul { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">DIGITAL COFFEE</div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#facility">Facility</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="home">
+        <h1>Digital Coffee</h1>
+        <p>WHERE COFFEE MEETS DIGITAL</p>
+    </section>
+
+    <div class="stats">
+        <div class="stat-item">
+            <h2>2</h2>
+            <p>Cabang</p>
+        </div>
+        <div class="stat-item">
+            <h2>5000+</h2>
+            <p>Pengunjung</p>
+        </div>
+        <div class="stat-item">
+            <h2>5.0</h2>
+            <p>Rating</p>
+        </div>
+    </div>
+
+    <section id="about">
+        <h2 class="section-title">About Us</h2>
+        <div class="about-container">
+            <div class="about-text">
+                <h3>Visi Kami</h3>
+                <p>Menjadi ruang kreatif pihak ketiga yang menghubungkan pecinta kopi dengan ekosistem digital, menciptakan tempat kerja yang paling nyaman di kota.</p>
+                <h3>Misi Kami</h3>
+                <p>1. Menyajikan biji kopi nusantara berkualitas tinggi.<br>
+                   2. Menyediakan infrastruktur teknologi terbaik bagi pekerja kreatif.<br>
+                   3. Memberikan pelayanan yang hangat dan personal.</p>
+            </div>
+            <img src="https://images.unsplash.com/photo-1453614512568-c4024d13c247?auto=format&fit=crop&w=600&q=80" style="width:100%; border-radius: 15px;" alt="Cafe Interior">
+        </div>
+    </section>
+
+    <section id="menu" style="background-color: #fafafa;">
+        <h2 class="section-title">Our Best Menu</h2>
+        <div class="menu-grid">
+            <div class="menu-card">
+                <img src="https://plus.unsplash.com/premium_photo-1694116056814-edddc837a61d?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Ice cream ">
+                <div class="menu-info">
+                    <h4>Ice cream with matcha latte</h4>
+                    <p>Perpaduan eskrim vanila dengan matcha</p>
+                    <p class="price">Rp 30.000</p>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=400&q=80" alt="Iced Coffee">
+                <div class="menu-info">
+                    <h4>Iced Aren Latte</h4>
+                    <p>Favorit semua orang, manis dan segar.</p>
+                    <p class="price">Rp 25.000</p>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1681218079567-35aef7c8e7e4?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Croissant">
+                <div class="menu-info">
+                    <h4>Butter Croissant</h4>
+                    <p>Pastry renyah kualitas artisan.</p>
+                    <p class="price">Rp 22.000</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="facility">
+        <h2 class="section-title">Facilities</h2>
+        <div class="fac-grid">
+            <div class="fac-item">
+                <i class="fas fa-wifi"></i>
+                <h3>High Speed WiFi</h3>
+                <p>Koneksi hingga 100 Mbps untuk kerja lebih produktif.</p>
+            </div>
+            <div class="fac-item">
+                <i class="fas fa-smoking"></i>
+                <h3>Smoking Area</h3>
+                <p>Area terbuka yang nyaman dengan sirkulasi udara baik.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" style="background-color: #f4f4f4;">
+        <h2 class="section-title">Contact Us</h2>
+        <div class="contact-grid">
+            <div class="branch-card">
+                <h3>Cabang Bandung (Main)</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Jl. Braga No. 12, Sumur Bandung</p>
+                <p><i class="fas fa-clock"></i> 08.00 - 22.00 WIB</p>
+                <p><i class="fas fa-phone"></i> +62 22 123 4567</p>
+            </div>
+            <div class="branch-card">
+                <h3>Cabang Jakarta</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Jl. Senopati No. 8, Jakarta Selatan</p>
+                <p><i class="fas fa-clock"></i> 09.00 - 23.00 WIB</p>
+                <p><i class="fas fa-phone"></i> +62 21 987 6543</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-info">
+            <p><i class="fas fa-envelope"></i> hello@digitalcoffee.com</p>
+            <div class="social-links" style="margin-top: 15px;">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <p style="font-size: 0.8rem; margin-top: 10px;">@digitalcoffee_id</p>
+            </div>
+        </div>
+        <p>&copy; 2024 Digital Coffee. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

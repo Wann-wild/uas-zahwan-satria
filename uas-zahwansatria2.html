@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservasi - Digital Coffee</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #d4a373;
+            --dark: #1a1a1a;
+            --light: #fefae0;
+            --accent: #bc6c25;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
+        body { background-color: #f8f8f8; color: var(--dark); line-height: 1.6; }
+
+        /* Navigation (Reused from index.html, adjusted for separate page) */
+        nav { background: var(--dark); color: #fff; padding: 1rem 5%; position: sticky; width: 100%; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-weight: 700; font-size: 1.5rem; color: var(--primary); }
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-left: 20px; }
+        nav ul li a { color: #fff; text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
+        nav ul li a:hover { color: var(--primary); }
+
+        /* Main Content Styling */
+        .container { max-width: 800px; margin: 50px auto; padding: 30px; background-color: #fff; border-radius: 15px; box-shadow: 0 5px 25px rgba(0,0,0,0.1); }
+        h1 { text-align: center; margin-bottom: 30px; color: var(--dark); font-size: 2.2rem; position: relative; }
+        h1::after { content: ''; width: 60px; height: 3px; background: var(--primary); position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); }
+
+        /* Form Styling */
+        .reservation-form { display: grid; grid-template-columns: 1fr; gap: 20px; margin-top: 30px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: #333; }
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group input[type="date"],
+        .form-group input[type="time"],
+        .form-group input[type="number"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+        .form-group textarea { resize: vertical; min-height: 100px; }
+        
+        .checkbox-group { display: flex; align-items: center; margin-top: 15px; }
+        .checkbox-group input[type="checkbox"] { margin-right: 10px; transform: scale(1.2); }
+        .checkbox-group label { font-weight: normal; }
+
+        .submit-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 30px;
+        }
+        .submit-button:hover { background-color: var(--accent); }
+
+        /* Support Info */
+        .support-info { margin-top: 60px; padding-top: 40px; border-top: 1px solid #eee; text-align: center; }
+        .support-info h2 { color: var(--dark); margin-bottom: 20px; font-size: 1.8rem; }
+        .support-info p { margin-bottom: 10px; }
+        .support-info a { color: var(--primary); text-decoration: none; font-weight: 600; }
+        .support-info a:hover { text-decoration: underline; }
+
+        /* Footer */
+        footer { background: var(--dark); color: #fff; padding: 30px 10%; text-align: center; margin-top: 50px; }
+        .footer-info { margin-bottom: 15px; }
+        .footer-info p { margin-bottom: 5px; font-size: 0.9rem; }
+        .social-links a { color: #fff; font-size: 1.2rem; margin: 0 8px; transition: 0.3s; }
+        .social-links a:hover { color: var(--primary); }
+        .copyright { font-size: 0.8rem; margin-top: 15px; color: #bbb; }
+
+        @media (max-width: 600px) {
+            .container { margin: 30px 15px; padding: 20px; }
+            h1 { font-size: 1.8rem; }
+            nav ul { display: none; } /* Hide nav menu on smaller screens for simplicity */
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">DIGITAL COFFEE</div>
+        <ul>
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#menu">Menu</a></li>
+            <li><a href="index.html#facility">Facility</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="reservation.html">Reservasi</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Formulir Reservasi</h1>
+
+        <form class="reservation-form" action="#" method="POST">
+            <div class="form-group">
+                <label for="nama_lengkap">Nama Lengkap:</label>
+                <input type="text" id="nama_lengkap" name="nama_lengkap" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="nomor_hp">Nomor HP:</label>
+                <input type="tel" id="nomor_hp" name="nomor_hp" pattern="[0-9]{10,14}" placeholder="Contoh: 081234567890" required>
+            </div>
+
+            <div class="form-group">
+                <label for="tanggal_reservasi">Tanggal Reservasi:</label>
+                <input type="date" id="tanggal_reservasi" name="tanggal_reservasi" required>
+            </div>
+
+            <div class="form-group">
+                <label for="jam_reservasi">Jam Reservasi:</label>
+                <select id="jam_reservasi" name="jam_reservasi" required>
+                    <option value="">Pilih Jam</option>
+                    <option value="09:00">09:00</option>
+                    <option value="10:00">10:00</option>
+                    <option value="11:00">11:00</option>
+                    <option value="12:00">12:00</option>
+                    <option value="13:00">13:00</option>
+                    <option value="14:00">14:00</option>
+                    <option value="15:00">15:00</option>
+                    <option value="16:00">16:00</option>
+                    <option value="17:00">17:00</option>
+                    <option value="18:00">18:00</option>
+                    <option value="19:00">19:00</option>
+                    <option value="20:00">20:00</option>
+                    <option value="21:00">21:00</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="jumlah_orang">Jumlah Orang:</label>
+                <input type="number" id="jumlah_orang" name="jumlah_orang" min="1" max="10" value="1" required>
+            </div>
+
+            <div class="form-group">
+                <label for="cabang">Pilih Cabang:</label>
+                <select id="cabang" name="cabang" required>
+                    <option value="">Pilih Cabang</option>
+                    <option value="bandung">Bandung (Main)</option>
+                    <option value="jakarta">Jakarta</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="permintaan_khusus">Permintaan Khusus (opsional):</label>
+                <textarea id="permintaan_khusus" name="permintaan_khusus" rows="4" placeholder="Contoh: Meja dekat jendela, perayaan ulang tahun, dll."></textarea>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="konfirmasi" name="konfirmasi" required>
+                <label for="konfirmasi">Saya mengkonfirmasi bahwa data yang saya masukkan benar.</label>
+            </div>
+
+            <button type="submit" class="submit-button">Kirim Reservasi</button>
+        </form>
+
+        <div class="support-info">
+            <h2>Butuh Bantuan?</h2>
+            <p>Jika Anda memiliki pertanyaan terkait reservasi atau butuh bantuan segera, jangan ragu untuk menghubungi tim support kami.</p>
+            <p><strong>Email:</strong> <a href="mailto:support@digitalcoffee.com">support@digitalcoffee.com</a></p>
+            <p><strong>Telepon:</strong> <a href="tel:+6281234567890">+62 812-3456-7890</a></p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-info">
+            <p><i class="fas fa-envelope"></i> hello@digitalcoffee.com</p>
+            <div class="social-links" style="margin-top: 10px;">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <p style="font-size: 0.8rem; margin-top: 5px;">@digitalcoffee_id</p>
+            </div>
+        </div>
+        <p class="copyright">&copy; 2024 Digital Coffee. All Rights Reserved. Dibuat oleh Zahwan Satria.</p>
+    </footer>
+
+</body>
+</html>
